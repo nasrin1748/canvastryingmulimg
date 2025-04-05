@@ -85,7 +85,7 @@
         <br>
         <button class="btn btn-primary" onclick="addImageToCanvas()">Add to Canvas</button>
     </div>
-    <div id="canvasContainer" style="position: relative; width: 700px; height: 700px;">
+    <div id="canvasContainer" style="position: relative; width: 600px; height: 500px;">
         <canvas id="can" width="600" height="500" style="border:5px solid;"></canvas>
         <button id="movingDiv1" class="movingDiv"></button>
         <button id="movingDiv2" class="movingDiv"></button>
@@ -356,11 +356,11 @@
         }
 
         function moveDiv(div) {
-            const { x, y } = getRandomPosition(); 
+            const { x, y } = getRandomPosition();
             const angle = Math.random() * 360;
-            div.style.left = `${canvas.getBoundingClientRect().left + x}px`;
-            div.style.top = `${canvas.getBoundingClientRect().top + y}px`;
-            div.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg)`;
+            div.style.left = `${x}px`;
+            div.style.top = `${y}px`;
+            div.style.transform = `rotate(${angle}deg)`;
         }
 
         function startMoving() {
