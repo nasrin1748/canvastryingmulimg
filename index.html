@@ -91,6 +91,7 @@
         <button id="movingDiv2" class="movingDiv"></button>
         <button id="movingDiv3" class="movingDiv"></button>
     </div>
+    <button id="addMovingDivBtn" class="btn btn-primary" onclick="addMovingDiv()">Add Moving Div</button>
     <audio id="backgroundMusic" loop>
         <source src="downloads.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -379,6 +380,30 @@
                 document.getElementById('movingDiv2').style.display = 'none';
                 document.getElementById('movingDiv3').style.display = 'none';
             }, 20000);
+        }
+
+        function addMovingDiv() {
+            const newDiv = document.createElement('button');
+            newDiv.classList.add('movingDiv');
+            newDiv.style.backgroundColor = getRandomColor();
+            document.getElementById('canvasContainer').appendChild(newDiv);
+            moveDiv(newDiv);
+            const moveInterval = setInterval(() => moveDiv(newDiv), 5000);
+
+            // Optionally stop moving after some time
+            setTimeout(() => {
+                clearInterval(moveInterval);
+                newDiv.style.display = 'none';
+            }, 20000);
+        }
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
         }
     </script>
 </body>
