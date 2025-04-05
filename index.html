@@ -345,7 +345,7 @@
         }
 
         function redrawCanvas() {
-            ctx.clearRect(0, 0, w, h);
+            ctx.clearRect(0, 0, w, h); // Ensure the canvas is cleared before redrawing all images
             images.forEach(imgObj => {
                 ctx.drawImage(imgObj.img, imgObj.x, imgObj.y, imgObj.width, imgObj.height);
             });
